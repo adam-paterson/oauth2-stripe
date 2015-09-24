@@ -5,7 +5,7 @@
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/adam-paterson/oauth2-stripe.svg?style=flat-square)](https://scrutinizer-ci.com/g/adam-paterson/oauth2-stripe/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/adam-paterson/oauth2-stripe.svg?style=flat-square)](https://scrutinizer-ci.com/g/adam-paterson/oauth2-stripe)
 [![Dependency Status](https://img.shields.io/versioneye/d/php/adam-paterson:oauth2-stripe/1.1.2.svg?style=flat-square)](https://www.versioneye.com/php/adam-paterson:oauth2-stripe/1.1.2)
-[![Total Downloads](https://img.shields.io/packagist/dt/league/oauth2-stripe.svg?style=flat-square)](https://packagist.org/packages/adam-paterson/oauth2-stripe)
+[![Total Downloads](https://img.shields.io/packagist/dt/adampaterson/oauth2-stripe.svg?style=flat-square)](https://packagist.org/packages/adam-paterson/oauth2-stripe)
 
 This package provides Stripe OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
