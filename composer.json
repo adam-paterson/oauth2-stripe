@@ -1,5 +1,5 @@
 {
-    "name": "adampaterson/oauth2-stripe",
+    "name": "adam-paterson/oauth2-stripe",
     "description": "Stripe OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "keywords": [
         "oauth",
