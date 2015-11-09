@@ -2,6 +2,7 @@
 
 namespace AdamPaterson\OAuth2\Client\Provider;
 
+use League\OAuth2\Client\Grant\AbstractGrant;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
@@ -86,5 +87,19 @@ class Stripe extends AbstractProvider
     protected function createResourceOwner(array $response, AccessToken $token)
     {
         return new StripeResourceOwner($response);
+    }
+
+    protected function createAccessToken(array $response, AbstractGrant $grant)
+    {
+        $accessToken = parent::createAccessToken($response, $grant);
+
+        // create the parent access token and add properties from response
+        foreach ($response as $k => $v) {
+            if (!property_exists($accessToken, $k)) {
+                $accessToken->$k = $v;
+            }
+        }
+
+        return $accessToken;
     }
 }
