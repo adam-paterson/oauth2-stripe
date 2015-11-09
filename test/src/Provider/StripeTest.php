@@ -178,4 +178,24 @@ class StripeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($businessUrl, $account->getBusinessUrl());
         $this->assertEquals($businessUrl, $account->toArray()['business_url']);
     }
+
+    public function testExtraPropertiesAreAddedToAccessToken()
+    {
+        $response = m::mock('Psr\Http\Message\ResponseInterface');
+        $response->shouldReceive('getBody')->andReturn('{"access_token":"mock_access_token", "token_type":"bearer", "extra_1": "mock_extra_1", "extra_2": "mock_extra_2"}');
+        $response->shouldReceive('getHeader')->andReturn(['content-type' => 'json']);
+        $response->shouldReceive('getStatusCode')->andReturn(200);
+        $client = m::mock('GuzzleHttp\ClientInterface');
+        $client->shouldReceive('send')->times(1)->andReturn($response);
+        $this->provider->setHttpClient($client);
+
+        $token = $this->provider->getAccessToken('authorization_code',
+            ['code' => 'mock_authorization_code']);
+        $this->assertEquals('mock_access_token', $token->getToken());
+        $this->assertNull($token->getExpires());
+        $this->assertNull($token->getRefreshToken());
+        $this->assertNull($token->getResourceOwnerId());
+        $this->assertObjectHasAttribute('extra_1', $token);
+        $this->assertObjectHasAttribute('extra_2', $token);
+    }
 }
