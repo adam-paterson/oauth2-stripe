@@ -24,10 +24,10 @@ Usage is the same as The League's OAuth client, using `\AdamPaterson\OAuth2\Clie
 
 ### Authorization Code Flow
 
-session_start();
-
 ```php
 <?php
+session_start();
+
 $provider = new \AdamPaterson\OAuth2\Client\Provider\Stripe([
     'clientId'          => '{stripe-client-id}',
     'clientSecret'      => '{stripe-client-secret}',
