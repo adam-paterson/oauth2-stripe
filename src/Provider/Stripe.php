@@ -48,6 +48,16 @@ class Stripe extends AbstractProvider
     }
 
     /**
+     * Get deauthorization url to end OAuth flow
+     *
+     * @return string
+     */
+    public function getBaseDeauthorizationUrl()
+    {
+        return 'https://connect.stripe.com/oauth/deauthorize';
+    }
+
+    /**
      * Get the default scopes used by this provider.
      *
      * @return array
@@ -101,5 +111,28 @@ class Stripe extends AbstractProvider
         }
 
         return $accessToken;
+    }
+
+    /**
+     * @param string $stripeUserId stripe account ID
+     *
+     * @return mixed
+     */
+    public function deauthorize($stripeUserId)
+    {
+        $request = $this->createRequest(
+            self::METHOD_POST,
+            $this->getBaseDeauthorizationUrl(),
+            null,
+            [
+                'body' => $this->buildQueryString([
+                    'stripe_user_id' => $stripeUserId,
+                    'client_id' => $this->clientId,
+                    'client_secret' => $this->clientSecret,
+                ]),
+            ]
+        );
+
+        return $this->getParsedResponse($request);
     }
 }

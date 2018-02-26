@@ -1,5 +1,9 @@
 # OAuth 2.0 Stripe Provider Changelog
 
+## 2.0.1
+_Released: 2018-02-26
+* Add `deauthorize()` method [Thanks Aleg-1990]
+
 ## 2.0.0
 _Released: 2017-02-22_
 
