@@ -76,6 +76,18 @@ if (!isset($_GET['code'])) {
 
 ```
 
+### Set a custom `baseUrl`
+
+For example, this for use with Stripe Connect Express accounts:
+
+```php
+$provider = new \AdamPaterson\OAuth2\Client\Provider\Stripe([
+    'clientId'          => '{stripe-client-id}',
+    'clientSecret'      => '{stripe-client-secret}',
+    'baseUrl'           => 'https://connect.stripe.com/express/',
+]);
+```
+
 ## Testing
 
 ``` bash
