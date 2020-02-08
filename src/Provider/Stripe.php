@@ -16,7 +16,7 @@ class Stripe extends AbstractProvider
     /**
      * @var string
      */
-    private $urlAuthorize = 'https://connect.stripe.com/oauth/authorize';
+    public $urlAuthorize = 'https://connect.stripe.com/oauth/authorize';
 
     /**
      * Get authorization url to begin OAuth flow
