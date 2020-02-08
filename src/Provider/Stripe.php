@@ -14,13 +14,18 @@ class Stripe extends AbstractProvider
     use BearerAuthorizationTrait;
 
     /**
+     * @var string
+     */
+    public $urlAuthorize = 'https://connect.stripe.com/oauth/authorize';
+
+    /**
      * Get authorization url to begin OAuth flow
      *
      * @return string
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://connect.stripe.com/oauth/authorize';
+        return $this->urlAuthorize;
     }
 
     /**
