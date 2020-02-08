@@ -75,7 +75,7 @@ if (!isset($_GET['code'])) {
 
 ```
 
-### Set a custom `baseUrl`
+### Set a custom `urlAuthorize`
 
 For example, this for use with Stripe Connect Express accounts:
 
@@ -83,7 +83,7 @@ For example, this for use with Stripe Connect Express accounts:
 $provider = new \AdamPaterson\OAuth2\Client\Provider\Stripe([
     'clientId'          => '{stripe-client-id}',
     'clientSecret'      => '{stripe-client-secret}',
-    'baseUrl'           => 'https://connect.stripe.com/express/',
+    'urlAuthorize'      => 'https://connect.stripe.com/express/oauth/authorize',
 ]);
 ```
 
